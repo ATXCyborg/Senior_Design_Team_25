@@ -24,7 +24,26 @@ module testbench(CLK, led0, led1);
     input CLK;
     output wire led0, led1;
     
+	reg can_clk = 0;
+	parameter RUN_LEN = 100;	
+
+	initial begin
+		can_clk = 0;
+	end
+
     wire can_lo_out, can_hi_out;
-    
-    custom_can_node can0(CLK, 0, 0, can_lo_out, 0, can_hi_out, led0, led1);
+	wire can_lo_in, can_hi_in;
+	assign can_lo_in = can_lo_out;
+	assign can_hi_in = can_hi_out;    
+
+    custom_can_node can0(can_clk, 0, can_lo_in, can_lo_out, can_hi_in, can_hi_out, led0, led1);
+
+	integer i=0;
+	always@(can_clk) begin
+		can_clk <= #10 ~can_clk;
+		$write("%d: ",i);
+		i = i+1;
+		if(i>RUN_LEN) 
+			$finish;
+	end
 endmodule
