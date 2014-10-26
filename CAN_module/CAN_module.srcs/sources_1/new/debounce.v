@@ -46,10 +46,12 @@ module debounce(clk, reset, sig_in, db_out);
     end
     
     always@(posedge clk) begin
-        counter = counter + 1;
+		if(running)
+        	counter = counter + 1;
         if(counter == delay) begin
             running = 1'b0;
             db_out = sig_in;
         end
+		//$display("sig_in: %d (latchd: %d), running: %d. Counter: %d",sig_in, orig_input, running, counter);
     end
 endmodule
