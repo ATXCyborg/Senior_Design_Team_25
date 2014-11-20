@@ -1,0 +1,10 @@
+#-----------------------------------------------------------
+# Vivado v2014.3.1 (64-bit)
+# SW Build 1056140 on Thu Oct 30 17:03:40 MDT 2014
+# IP Build 1028902 on Fri Sep 26 17:35:13 MDT 2014
+# Start of session at: Thu Nov 13 01:02:22 2014
+# Process ID: 17868
+# Log file: C:/Users/splee_000/Documents/senior_design/CAN_module/CAN_module.runs/synth_1/testbench.vds
+# Journal file: C:/Users/splee_000/Documents/senior_design/CAN_module/CAN_module.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source testbench.tcl

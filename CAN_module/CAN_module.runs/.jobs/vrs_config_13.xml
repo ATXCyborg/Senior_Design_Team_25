@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Runs Version="1" Minor="0">
+	<Run Id="can_1_synth_1" LaunchDir="C:/Users/splee_000/Documents/senior design/CAN_module/CAN_module.runs/can_1_synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado"/>
+	<Run Id="synth_1" LaunchDir="C:/Users/splee_000/Documents/senior design/CAN_module/CAN_module.runs/synth_1" FlowId="Vivado_Synthesis" FromStepId="vivado" ToStepId="vivado">
+		<Parent Id="can_1_synth_1"/>
+	</Run>
+</Runs>
+
