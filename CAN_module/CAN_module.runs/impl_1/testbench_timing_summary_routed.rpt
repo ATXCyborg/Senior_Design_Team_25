@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.3.1 (win64) Build 1056140 Thu Oct 30 17:03:40 MDT 2014
-| Date         : Thu Nov 13 01:04:01 2014
+| Date         : Fri Nov 21 23:47:11 2014
 | Host         : HotChocolate running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -warn_on_violation -max_paths 10 -file testbench_timing_summary_routed.rpt -rpx testbench_timing_summary_routed.rpx
 | Design       : testbench
@@ -53,6 +53,14 @@ Table of Contents
 --------------------
  There are 2 register/latch pins with no clock driven by root clock pin: CLK (HIGH)
 
+ There is 1 register/latch pin with no clock driven by root clock pin: can0/can_hi_out_reg/G (HIGH)
+
+ There is 1 register/latch pin with no clock driven by root clock pin: can0/can_lo_out_reg/G (HIGH)
+
+ There are 2 register/latch pins with no clock driven by root clock pin: can0/state_reg[0]/C (HIGH)
+
+ There are 34 register/latch pins with no clock driven by root clock pin: can0/state_reg[1]/C (HIGH)
+
 
 2. checking constant_clock
 --------------------------
@@ -66,7 +74,7 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 2 pins that are not constrained for maximum delay. (HIGH)
+ There are 36 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
@@ -119,7 +127,7 @@ Table of Contents
 
 13. checking latch_loops
 ------------------------
- There are 0 combinational latch loops in the design through latch input
+ There is 1 combinational latch loop in the design through latch input (HIGH)
 
 
 

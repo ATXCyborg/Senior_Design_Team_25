@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 --------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2014.3.1 (win64) Build 1056140 Thu Oct 30 17:03:40 MDT 2014
-| Date         : Thu Nov 13 01:03:18 2014
+| Date         : Fri Nov 21 23:46:07 2014
 | Host         : HotChocolate running 64-bit major release  (build 9200)
 | Command      : report_drc
 --------------------------------------------------------------------------------------
@@ -20,7 +20,7 @@ Table of Contents
       Design limits: <entire design considered>
            Ruledeck: default
            Max violations: <unlimited>
-         Violations found: 4
+         Violations found: 6
 
 2. REPORT DETAILS
 -----------------
@@ -45,6 +45,25 @@ Neither the CFGBVS nor CONFIG_VOLTAGE voltage property is set in the current_des
  #where value2 is the voltage provided to configuration bank 0
 
 Refer to the device configuration user guide for more information.
+Related violations: <none>
+
+PLHOLDVIO-2#1 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT can0/can_lo_out_reg_i_2 is driving clock pin of 2 cells. This could lead to large hold time violations. First few involved cells are:
+    can0/can_lo_out_reg {LDCE}
+    can0/can_hi_out_reg {LDCE}
+
+Related violations: <none>
+
+PLHOLDVIO-2#2 Warning
+Non-Optimal connections which could lead to hold violations  
+A LUT can0/n_0_100_BUFG_inst_i_1 is driving clock pin of 32 cells. This could lead to large hold time violations. First few involved cells are:
+    can0/bits_transmitted_reg[31] {LDCE}
+    can0/bits_transmitted_reg[5] {LDCE}
+    can0/bits_transmitted_reg[6] {LDCE}
+    can0/bits_transmitted_reg[16] {LDCE}
+    can0/bits_transmitted_reg[19] {LDCE}
+
 Related violations: <none>
 
 ZPS7-1#1 Warning

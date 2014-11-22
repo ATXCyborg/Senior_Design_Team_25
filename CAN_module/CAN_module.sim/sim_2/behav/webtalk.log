@@ -2,15 +2,12 @@
 # Webtalk v2014.3.1 (64-bit)
 # SW Build 1056140 on Thu Oct 30 17:03:40 MDT 2014
 # IP Build 1028902 on Fri Sep 26 17:35:13 MDT 2014
-# Start of session at: Thu Nov 13 01:03:39 2014
-# Process ID: 16716
+# Start of session at: Fri Nov 21 17:46:51 2014
+# Process ID: 7552
 # Log file: C:/Users/splee_000/Documents/senior_design/CAN_module/CAN_module.sim/sim_2/behav/webtalk.log
 # Journal file: C:/Users/splee_000/Documents/senior_design/CAN_module/CAN_module.sim/sim_2/behav\webtalk.jou
 #-----------------------------------------------------------
 source C:/Users/splee_000/Documents/senior_design/CAN_module/CAN_module.sim/sim_2/behav/xsim.dir/testbench_behav/webtalk/xsim_webtalk.tcl -notrace
-webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 61.953 ; gain = 0.000
-
-    while executing
-"webtalk_transmit -clientid 739542153 -regid "" -xml C:/Users/splee_000/Documents/senior_design/CAN_module/CAN_module.sim/sim_2/behav/xsim.dir/testbenc..."
-    (file "C:/Users/splee_000/Documents/senior_design/CAN_module/CAN_module.sim/sim_2/behav/xsim.dir/testbench_behav/webtalk/xsim_webtalk.tcl" line 41)
-INFO: [Common 17-206] Exiting Webtalk at Thu Nov 13 01:03:45 2014...
+INFO: [Common 17-186] 'C:/Users/splee_000/Documents/senior_design/CAN_module/CAN_module.sim/sim_2/behav/xsim.dir/testbench_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Fri Nov 21 17:46:57 2014. For additional details about this file, please refer to the WebTalk help file at C:/Xilinx/Vivado/2014.3.1/doc/webtalk_introduction.html.
+webtalk_transmit: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 61.824 ; gain = 0.000
+INFO: [Common 17-206] Exiting Webtalk at Fri Nov 21 17:46:57 2014...

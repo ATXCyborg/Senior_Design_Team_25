@@ -1,7 +1,7 @@
 Copyright 1986-2014 Xilinx, Inc. All Rights Reserved.
 ------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2014.3.1 (win64) Build 1056140 Thu Oct 30 17:03:40 MDT 2014
-| Date             : Thu Nov 13 01:04:06 2014
+| Date             : Fri Nov 21 23:47:12 2014
 | Host             : HotChocolate running 64-bit major release  (build 9200)
 | Command          : 
 | Design           : testbench
@@ -30,13 +30,12 @@ Table of Contents
 ----------
 
 +--------------------------+---------------------------------+
-| Total On-Chip Power (W)  | 5.506 (Junction temp exceeded!) |
-| Dynamic (W)              | 5.142                           |
-| Device Static (W)        | 0.364                           |
-| Total Off-Chip Power (W) | 0.000                           |
+| Total On-Chip Power (W)  | 5.213 (Junction temp exceeded!) |
+| Dynamic (W)              | 4.880                           |
+| Device Static (W)        | 0.333                           |
 | Effective TJA (C/W)      | 11.5                            |
-| Max Ambient (C)          | 21.5                            |
-| Junction Temperature (C) | 88.5                            |
+| Max Ambient (C)          | 24.9                            |
+| Junction Temperature (C) | 85.1                            |
 | Confidence Level         | Low                             |
 | Setting File             | ---                             |
 | Simulation Activity File | ---                             |
@@ -50,15 +49,16 @@ Table of Contents
 +----------------+-----------+----------+-----------+-----------------+
 | On-Chip        | Power (W) | Used     | Available | Utilization (%) |
 +----------------+-----------+----------+-----------+-----------------+
-| Slice Logic    |     0.027 |        7 |       --- |             --- |
-|   LUT as Logic |     0.018 |        1 |     53200 |           <0.01 |
-|   BUFG         |     0.006 |        1 |        32 |            3.12 |
-|   Register     |     0.003 |        2 |    106400 |           <0.01 |
-|   Others       |     0.000 |        2 |       --- |             --- |
-| Signals        |     0.045 |        4 |       --- |             --- |
-| I/O            |     5.070 |        3 |       200 |            1.50 |
-| Static Power   |     0.364 |          |           |                 |
-| Total          |     5.506 |          |           |                 |
+| Slice Logic    |     0.400 |      143 |       --- |             --- |
+|   LUT as Logic |     0.368 |       67 |     53200 |            0.12 |
+|   BUFG         |     0.022 |        2 |        32 |            6.25 |
+|   CARRY4       |     0.007 |       12 |     13300 |            0.09 |
+|   Register     |     0.003 |       36 |    106400 |            0.03 |
+|   Others       |     0.000 |        4 |       --- |             --- |
+| Signals        |     0.286 |      115 |       --- |             --- |
+| I/O            |     4.193 |        3 |       200 |            1.50 |
+| Static Power   |     0.333 |          |           |                 |
+| Total          |     5.213 |          |           |                 |
 +----------------+-----------+----------+-----------+-----------------+
 
 
@@ -68,10 +68,10 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.163 |       0.076 |      0.086 |
-| Vccaux    |       1.800 |     0.251 |       0.210 |      0.041 |
+| Vccint    |       1.000 |     0.767 |       0.690 |      0.076 |
+| Vccaux    |       1.800 |     0.212 |       0.174 |      0.038 |
 | Vcco33    |       3.300 |     0.000 |       0.000 |      0.000 |
-| Vcco25    |       2.500 |     1.876 |       1.875 |      0.001 |
+| Vcco25    |       2.500 |     1.552 |       1.551 |      0.001 |
 | Vcco18    |       1.800 |     0.001 |       0.000 |      0.001 |
 | Vcco15    |       1.500 |     0.000 |       0.000 |      0.000 |
 | Vcco135   |       1.350 |     0.000 |       0.000 |      0.000 |
@@ -81,7 +81,7 @@ Table of Contents
 | MGTAVcc   |       1.000 |     0.000 |       0.000 |      0.000 |
 | MGTAVtt   |       1.200 |     0.000 |       0.000 |      0.000 |
 | MGTVccaux |       1.800 |     0.000 |       0.000 |      0.000 |
-| Vccpint   |       1.000 |     0.134 |       0.000 |      0.134 |
+| Vccpint   |       1.000 |     0.119 |       0.000 |      0.119 |
 | Vccpaux   |       1.800 |     0.010 |       0.000 |      0.010 |
 | Vccpll    |       1.800 |     0.003 |       0.000 |      0.003 |
 | Vcco_ddr  |       1.500 |     0.000 |       0.000 |      0.000 |
@@ -100,7 +100,7 @@ Table of Contents
 | Design implementation state | High       | Design is routed                                       |                                                                                                                    |
 | Clock nodes activity        | Low        | User specified less than 75% of clocks                 | Provide missing clock activity with a constraint file, simulation results or by editing the "By Clock Domain" view |
 | I/O nodes activity          | Low        | More than 75% of inputs are missing user specification | Provide missing input activity with simulation results or by editing the "By Resource Type -> I/Os" view           |
-| Internal nodes activity     | High       | User specified more than 25% of internal nodes         |                                                                                                                    |
+| Internal nodes activity     | Medium     | User specified less than 25% of internal nodes         | Provide missing internal nodes activity with simulation results or by editing the "By Resource Type" views         |
 | Device models               | High       | Device models are Production                           |                                                                                                                    |
 |                             |            |                                                        |                                                                                                                    |
 | Overall confidence level    | Low        |                                                        |                                                                                                                    |
@@ -142,8 +142,8 @@ Table of Contents
 +-----------+-----------+
 | Name      | Power (W) |
 +-----------+-----------+
-| testbench |     5.142 |
-|   can0    |     0.059 |
+| testbench |     4.880 |
+|   can0    |     0.650 |
 +-----------+-----------+
 
 

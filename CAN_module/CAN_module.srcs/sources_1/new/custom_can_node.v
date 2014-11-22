@@ -32,7 +32,7 @@ module custom_can_node(
     );
     input can_clk, reset, can_lo_in, can_hi_in;
     output reg can_lo_out, can_hi_out, led0, led1;
-    
+
     /* 4 states for CAN node:
     *   1. Idle  
     *   2. Sending
@@ -41,30 +41,58 @@ module custom_can_node(
     */
     reg[1:0] state, next_state;
     reg[31:0] bits_transmitted;
-    reg[255:0] message; // Largest frame size = 111 bits (standard frame. 129 bits in extended message format).
+    reg[127:0] message; 
     
     reg[10:0] message_id;
     reg[3:0] data_length;
     reg[7:0] data[7:0];
     reg[14:0] CRC;
     
+    parameter EOF = 7'h7F;
+    // Extended format versus standard format base length
+     parameter msg_length_base = 44;  
+    `ifdef EXTENDEDFORMAT
+        parameter msg_length_base += 18; 
+    `endif
+    reg[7:0] msg_length = 0;
     integer i = 0;
     
     always@(state) begin
         case(state)
             0: begin    // IDLE
+                /*
+                *   Generate message if want to transmit. If no message to send, listen to bus. Else transmit
+                */
                 bits_transmitted <= 0;
-                message = {0,{message_id},3'b000,{data_length}}; 
+                message = {0,{message_id},2'b00,{data_length}}; 
+                msg_length = msg_length_base;
                 for(i=0; i < data_length; i = i+1) begin
                     message = {message,{data[i]}};
+                    msg_length = msg_length + 8;
                 end
-                message = {message, {CRC},1,0,1,10'b1};
+                message = {message, {CRC},3'b101,EOF};
+                // For now always transmit
                 next_state <= 1; 
             end
             1: begin    // SENDING
-                bits_transmitted = bits_transmitted + 1;
+                // Check transmitted bit with bus
+                // If not equal, lower priority. Kick off bus
+                // Takes cycle to latch output bit, so check next cycle
+                if( (can_hi_out != can_hi_in) || (can_lo_out != can_lo_in) ) begin
+                     bits_transmitted = msg_length - 1;
+                end else begin
+                    // Dominant = Logic 0 = High voltage
+                    // Recessive = Logic 1 = Low voltage
+                    can_hi_out = !message[bits_transmitted];    
+                    can_lo_out = message[bits_transmitted];
+                end
                 
-                next_state <= 2; 
+                bits_transmitted = bits_transmitted + 1;
+                if(bits_transmitted < msg_length) begin
+                    next_state <= 1;
+                end else begin
+                    next_state <= 2;
+                end 
             end
             2: begin    // WAIT RX
                 next_state <= 3;

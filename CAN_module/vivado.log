@@ -1,0 +1,21 @@
+#-----------------------------------------------------------
+# Vivado v2014.3.1 (64-bit)
+# SW Build 1056140 on Thu Oct 30 17:03:40 MDT 2014
+# IP Build 1028902 on Fri Sep 26 17:35:13 MDT 2014
+# Start of session at: Thu Nov 20 17:36:59 2014
+# Process ID: 15188
+# Log file: C:/Users/splee_000/Documents/senior_design/CAN_module/vivado.log
+# Journal file: C:/Users/splee_000/Documents/senior_design/CAN_module\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Users/splee_000/Documents/senior_design/CAN_module/CAN_module.xpr
+CRITICAL WARNING: [Project 1-19] Could not find the file 'C:/Users/splee_000/Documents/senior_design/CAN_module/CAN_module.srcs/sources_1/new/top.v'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2014.3.1/data/ip'.
+open_project: Time (s): cpu = 00:00:28 ; elapsed = 00:00:46 . Memory (MB): peak = 663.965 ; gain = 80.629
+update_compile_order -fileset sources_1
+exit
+INFO: [Common 17-206] Exiting Vivado at Thu Nov 20 17:39:30 2014...
