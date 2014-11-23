@@ -39,7 +39,7 @@ module debounce(clk, reset, sig_in, db_out);
 
     always@(sig_in) begin
         if(!running) begin
-            running = 1'b1;
+            //running = 1'b1;
             counter = 0;
             orig_input = sig_in;
         end
@@ -48,6 +48,8 @@ module debounce(clk, reset, sig_in, db_out);
     always@(posedge clk) begin
 		if(running)
         	counter = counter + 1;
+        if(counter == 0) 
+            running = 1'b1;
         if(counter == delay) begin
             running = 1'b0;
             db_out = sig_in;
