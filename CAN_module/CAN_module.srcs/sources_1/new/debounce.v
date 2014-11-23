@@ -26,8 +26,8 @@
 
 //`timescale 1 ns / 100 ps
 
-module debounce {clk, reset, sig_in, db_out};
-    input clk, reset, sign_in;
+module debounce(clk, reset, sig_in, db_out);
+    input clk, reset, sig_in;
     output reg db_out;
     
     // 100Mhz crystal 
